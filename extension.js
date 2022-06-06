@@ -52,8 +52,18 @@ const runMosCommand = (args, out, nomarks) => new Promise((resolve, reject) => {
     const uri = vscode.workspace.workspaceFolders[0].uri;
     const cwd = vscode.Uri.parse(uri).fsPath;
     // console.log('Running', fullArgs.join(' '));
-    mosProcess = childProcess.spawn('mos', fullArgs, { cwd });
-    if (!nomarks) out.append(`\n--[command: mos ${fullArgs.join(' ')}]\n`);
+    //mosProcess = childProcess.spawn('mos', fullArgs, { cwd });
+    //if (!nomarks) out.append(`\n--  [command: mos ${fullArgs.join(' ')}]\n`);
+    const processPlatform = process.platform;
+    if (args[0] === 'build' && processPlatform === 'darwin' && mosBoard.startsWith('ESP32')) {
+      const mosNativePath = process.env.MOS_NATIVE;
+      mosProcess = childProcess.spawn(mosNativePath + '/mos_build_local.sh', fullArgs, { cwd });
+      if (!nomarks) out.append(`\n--[command: mos_build_native ${fullArgs.join(' ')}]\n`);
+    }
+    else {
+      mosProcess = childProcess.spawn('mos', fullArgs, { cwd });
+      if (!nomarks) out.append(`\n--[command: mos ${fullArgs.join(' ')}]\n`);
+    }
     mosProcess.stdout.on('data', b => out.append(b.toString()));
     mosProcess.stderr.on('data', b => out.append(b.toString()));
     mosProcess.on('error', (err) => reject(err));
@@ -98,6 +108,8 @@ const mosView = {
           dark: path.join(__filename, '..', 'resources', 'icons', 'dark', 'build-local.svg')
         }
       },
+      // Comment remote build because of false click sometimes
+      /*
       {
         label: 'Build',
         command: { command: 'mos.build' },
@@ -106,6 +118,7 @@ const mosView = {
           dark: path.join(__filename, '..', 'resources', 'icons', 'dark', 'build-online.svg')
         }
       },
+      */
       {
         label: 'Flash',
         command: { command: 'mos.flash' },

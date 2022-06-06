@@ -25,7 +25,7 @@ This is a modification of [Mongoose OS](https://mongoose-os.com) extension provi
 
 ## Installation
 
-Download compiled extension file [mongoose-os-ide-0.6.0.vsix](https://github.com/kotelnikov/mongoose-os-ide-native/blob/master/mongoose-os-ide-0.6.0.vsix) and install it manually to Visual Studio Code, details here: [Install extensions from a VSIX](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix).
+Download compiled extension file [mongoose-os-ide-0.6.0.vsix](https://github.com/kotelnikov/mongoose-os-ide-native/blob/master/mongoose-os-ide-native-0.6.0.vsix) and install it manually to Visual Studio Code, details here: [Install extensions from a VSIX](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix).
 
 ## Requirements
 

@@ -55,8 +55,8 @@ const runMosCommand = (args, out, nomarks) => new Promise((resolve, reject) => {
     //mosProcess = childProcess.spawn('mos', fullArgs, { cwd });
     //if (!nomarks) out.append(`\n--  [command: mos ${fullArgs.join(' ')}]\n`);
     const processPlatform = process.platform;
-    if (args[0] === 'build' && processPlatform === 'darwin' && mosBoard.startsWith('ESP32')) {
-      const mosNativePath = process.env.MOS_NATIVE;
+    const mosNativePath = process.env.MOS_NATIVE;
+    if (args[0] === 'build' && mosBoard.startsWith('ESP32') && processPlatform === 'darwin' && mosNativePath != undefined) {
       mosProcess = childProcess.spawn(mosNativePath + '/mos_build_local.sh', fullArgs, { cwd });
       if (!nomarks) out.append(`\n--[command: mos_build_native ${fullArgs.join(' ')}]\n`);
     }

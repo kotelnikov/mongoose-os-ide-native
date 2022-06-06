@@ -2,7 +2,9 @@
 
 This is a modification of [Mongoose OS](https://mongoose-os.com) extension provides support Mongoose OS in Visual Studio Code. The difference between the original extension is using [mos-native](https://github.com/v-kiniv/mos-native) script for building applications for ESP32 on MacOS in a fraction of the time (without using a Docker). Also in the modified extension was hidden option of the menu for remote build, because of false clicking sometimes.
 
-![](https://mongoose-os.com/docs/quickstart/images/ide.png)
+## Installation
+
+Download compiled extension file [mongoose-os-ide-0.6.0.vsix](https://github.com/kotelnikov/mongoose-os-ide-native/blob/master/mongoose-os-ide-native-0.6.0.vsix) and install it manually to Visual Studio Code, details here: [Install extensions from a VSIX](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix).
 
 ## Features
 
@@ -20,12 +22,6 @@ This is a modification of [Mongoose OS](https://mongoose-os.com) extension provi
 - Edit files on a device: select port and click on a file to edit and save
 - Edit device config as a file: select port and click on "Device configuration"
 - C/C++ and JS API autocompletions:
-
-![](https://mongoose-os.com/docs/quickstart/images/ide_autocomplete.gif)
-
-## Installation
-
-Download compiled extension file [mongoose-os-ide-0.6.0.vsix](https://github.com/kotelnikov/mongoose-os-ide-native/blob/master/mongoose-os-ide-native-0.6.0.vsix) and install it manually to Visual Studio Code, details here: [Install extensions from a VSIX](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix).
 
 ## Requirements
 

@@ -1,6 +1,6 @@
-# Mongoose OS IDE with native build for ESP32
+# Mongoose OS IDE with native build ESP32 applications on MacOS
 
-This is a modification of [Mongoose OS](https://mongoose-os.com) extension provides support Mongoose OS in Visual Studio Code. The difference between original extension is using [mos-native](https://github.com/v-kiniv/mos-native) script for building applications for ESP32 on MacOS in a fraction of the time (without using a Docker). Also in the modified extension was hidden option of the menu for remote build, because of false clicking sometimes.
+This is a modification of [Mongoose OS](https://mongoose-os.com) extension provides support Mongoose OS in Visual Studio Code. The difference between the original extension is using [mos-native](https://github.com/v-kiniv/mos-native) script for building applications for ESP32 on MacOS in a fraction of the time (without using a Docker). Also in the modified extension was hidden option of the menu for remote build, because of false clicking sometimes.
 
 ![](https://mongoose-os.com/docs/quickstart/images/ide.png)
 

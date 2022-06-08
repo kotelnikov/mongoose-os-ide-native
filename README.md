@@ -1,6 +1,6 @@
 # Mongoose OS IDE with mos-native support
 
-This is a modification of [Mongoose OS](https://mongoose-os.com) extension provides support Mongoose OS in Visual Studio Code. The difference between the original extension is using [mos-native](https://github.com/v-kiniv/mos-native) script for building applications for ESP32 on MacOS in a fraction of the time (without using a Docker). Also in the modified extension was hidden option of the menu for remote build, because of false clicking sometimes.
+This is a modification of [Mongoose OS](https://mongoose-os.com) extension provides support Mongoose OS in Visual Studio Code. The difference between the original extension is using [mos-native](https://github.com/stopthatcow/mos-native) script for building applications for ESP32 on MacOS in a fraction of the time (without using a Docker). Also in the modified extension was hidden option of the menu for remote build, because of false clicking sometimes.
 
 ## Installation
 
@@ -26,5 +26,5 @@ Download compiled extension file [mongoose-os-ide-0.6.0.vsix](https://github.com
 ## Requirements
 
 * [mos command-line tool](https://mongoose-os.com/docs/) installed
-* [mos-native](https://github.com/v-kiniv/mos-native) script installed
+* [mos-native](https://github.com/stopthatcow/mos-native) script installed
 * Added environment variable "MOS_NATIVE" as a path to mos_build_local.sh script

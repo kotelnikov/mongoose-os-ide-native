@@ -12,7 +12,7 @@ const uartOut = vscode.window.createOutputChannel('Mongoose OS');
 const cmdOut = uartOut;
 const mgosStatusBarIcon = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 50);
 
-const boards = {
+const boards_default = {
   'STM32 B-L475E-IOT01A': '--platform stm32 --build-var BOARD=B-L475E-IOT01A',
   'STM32 DISCO-F746NG': '--platform stm32 --build-var BOARD=DISCO-F746NG',
   'STM32 NUCLEO-F746ZG': '--platform stm32 --build-var BOARD=NUCLEO-F746ZG',
@@ -24,6 +24,21 @@ const boards = {
   'ESP8266, flash 1M': '--platform esp8266 --build-var BOARD=esp8266-1M',
   'ESP8266, flash 2M': '--platform esp8266 --build-var BOARD=esp8266-2M',
 };
+
+let boards = {};
+
+const rootPath = (vscode.workspace.workspaceFolders && (vscode.workspace.workspaceFolders.length > 0))
+  ? vscode.workspace.workspaceFolders[0].uri.fsPath : undefined;
+const boardsJsonPath = path.join(rootPath, 'boards.json');
+
+const refreshBoards = () => {
+  try {
+      boards = JSON.parse(fs.readFileSync(boardsJsonPath, 'utf8'));
+  }
+  catch {
+      boards = boards_default;
+  }
+}
 
 const killMosCommandAndWait = () => new Promise((resolve, reject) => {
   if (mosProcess) {
@@ -253,6 +268,7 @@ module.exports = {
     });
 
     vscode.commands.registerCommand('mos.setBoard', () => {
+      refreshBoards();
       vscode.window.showQuickPick(Object.keys(boards)).then(v => {
         mosBoard = v;
         vscode.workspace.getConfiguration('mos').update('board', v)
